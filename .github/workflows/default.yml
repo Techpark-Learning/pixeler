@@ -1,0 +1,71 @@
+env:
+  RUBY_VERSION: 2.6.x
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: postgres
+  DATABASE_URL: postgres://postgres:@localhost:5432/payroll_test
+
+name: Rails tests
+on: [push,pull_request]
+jobs:
+  rubocop-test:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Check code
+        run: bundle exec rubocop --require rubocop-rails
+  rspec-test:
+    name: RSpec
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install postgres client
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Create database
+        run: |
+          bundler exec rails db:create RAILS_ENV=test
+          bundler exec rails db:migrate RAILS_ENV=test
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+          DATABASE_URL: postgres://postgres:@localhost:5432/payroll_test
+      - name: Install required Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Run tests
+        run: bundler exec rspec
+      - name: Upload coverage results
+        uses: actions/upload-artifact@master
+        if: success()
+        with:
+          name: coverage-report
+          path: coverage
