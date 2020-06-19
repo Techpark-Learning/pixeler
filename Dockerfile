@@ -11,12 +11,9 @@ COPY Gemfile /pixeler/Gemfile
 COPY Gemfile.lock /pixeler/Gemfile.lock
 COPY package.json yarn.lock ./
 COPY . /pixeler
-COPY entrypoint.sh /usr/bin/
 
 RUN bundle check || bundle install
 RUN yarn install --check-files
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
