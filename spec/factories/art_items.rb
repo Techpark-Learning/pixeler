@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :art_item do
-    name { "MyString" }
+    user
+    sequence(:name) { |s| "ArtItem#{s}" }
     image { "MyString" }
-    price { "9.99" }
-    user { nil }
-  end
+    price { rand(100) }
+    end
 end
