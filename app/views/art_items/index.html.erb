@@ -1,0 +1,12 @@
+<% if @art_item.blank? %>
+<p>There are not any art item currently in your portfolio.</p>
+<% else %>
+<p>These are the current art item in your portfolio</p>
+
+<ul id = "art_item">
+   <% @art_item.each do |c| %>
+   <li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+   <% end %>
+</ul>
+
+<% end %>

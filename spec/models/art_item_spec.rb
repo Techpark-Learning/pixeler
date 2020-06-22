@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ArtItem, type: :model do
   describe "#DeleteArtItem" do
     it "Remove Item from the database" do
-     created_art_item = FactoryBot.create(:art_item)
+      created_art_item = FactoryBot.create(:art_item)
       expect(created_art_item).to be_persisted
       created_art_item.destroy
       #We don't really need to test this, but later we will add soft deletes
