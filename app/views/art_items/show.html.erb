@@ -6,6 +6,8 @@
 
 <hr />
 
+<p> <%= link_to 'Edit', edit_art_item_path(@art_item) %></p>
+
 <p> <%= link_to 'Delete', @art_item, method: :delete %></p>
 
 <%= link_to 'Back', {:action => 'index'} %>
