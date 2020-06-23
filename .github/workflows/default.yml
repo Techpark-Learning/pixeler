@@ -21,7 +21,7 @@ jobs:
           gem install bundler
           bundler install
       - name: Check code
-        run: bundle exec rubocop --require rubocop-rails
+        run: bundle exec rubocop -c .rubocop.yaml --require rubocop-rails
   rspec-test:
     name: RSpec
     runs-on: ubuntu-latest

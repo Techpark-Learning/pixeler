@@ -10,7 +10,7 @@ class CreateArtItems < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :art_items, [:name,:user_id], unique: true
+    add_index :art_items, [:name, :user_id], unique: true
     add_index :art_items, :image, unique: true
   end
 end
