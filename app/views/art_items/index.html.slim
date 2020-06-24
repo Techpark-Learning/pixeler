@@ -1,0 +1,7 @@
+- if @art_item.any?
+p These are the art items currently in your portfolio.
+ul
+   - @art_item.each do |c|
+      li == link_to(c.name, c)
+- else
+p There are not any art item currently in your portfolio.
