@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Pixeler
+    == csrf_meta_tags
+    == csp_meta_tag
+
+    == stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    .pageloader
+    .infraloader
+    == render 'shared/mobile_navbar'
+    == render 'shared/main_sidebar'
+    == render 'shared/quickview_trigger'
+    == render 'shared/category_quickview'
+    == render 'shared/shop_quickview'
+    .shop-wrapper.has-background-image
+      == yield
+
+
