@@ -1,0 +1,59 @@
+.shop-quickview.has-background-image[data-background="http://via.placeholder.com/1280x853" data-demo-background="assets/img/bg/sidebar.jpeg" style="background-image: url(&quot;http://via.placeholder.com/1280x853&quot;);"]
+  .inner
+    .quickview-header
+      h2
+        | Nephos
+      span#close-shop-sidebar
+        svg.feather.feather-x[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+          line[x1="18" y1="6" x2="6" y2="18"]
+          line[x1="6" y1="6" x2="18" y2="18"]
+    ul.shop-menu
+      li
+        a[href="shop.html"]
+          span
+            | Shop
+          svg.feather.feather-grid[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+            rect[x="3" y="3" width="7" height="7"]
+            rect[x="14" y="3" width="7" height="7"]
+            rect[x="14" y="14" width="7" height="7"]
+            rect[x="3" y="14" width="7" height="7"]
+      li
+        a[href="products.html"]
+          span
+            | All Products
+          svg.feather.feather-box[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+            path[d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"]
+            polyline[points="3.27 6.96 12 12.01 20.73 6.96"]
+            line[x1="12" y1="22.08" x2="12" y2="12"]
+      li
+        a[href="account.html"]
+          span
+            | My Account
+          svg.feather.feather-user[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+            path[d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"]
+            circle[cx="12" cy="7" r="4"]
+      li
+        a[href="orders.html"]
+          span
+            | My Orders
+          svg.feather.feather-credit-card[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+            rect[x="1" y="4" width="22" height="16" rx="2" ry="2"]
+            line[x1="1" y1="10" x2="23" y2="10"]
+      li
+        a[href="wishlist.html"]
+          span
+            | My Wishlists
+          svg.feather.feather-heart[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+            path[d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"]
+    ul.user-profile
+      li
+        a[href="javascript:void(0);"]
+          img#quickview-avatar[src="#{image_tag('avatars/altvatar.png')}" data-demo-src="#{image_tag('avatars/altvatar.png')}" alt=""]
+          span.user
+            span#quickview-username
+              | Guest
+            span#quickview-cart-count
+              var
+                | 0
+              small
+                | Items in Cart

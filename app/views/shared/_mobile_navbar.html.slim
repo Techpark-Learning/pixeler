@@ -1,0 +1,58 @@
+nav.navbar.mobile-navbar.is-hidden-desktop.is-hidden-tablet[aria-label="main navigation"]
+  .navbar-brand
+    a.navbar-item[href="home.html"]
+      == image_tag "logo/nephos.svg"
+    a#sidebar-mode.navbar-item.is-icon.is-sidebar-toggler[href="javascript:void(0);"]
+      svg.feather.feather-sidebar[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+        rect[x="3" y="3" width="18" height="18" rx="2" ry="2"]
+        line[x1="9" y1="3" x2="9" y2="21"]
+    .navbar-burger
+      span
+      span
+      span
+  .navbar-menu
+    .navbar-item.has-dropdown
+      a.navbar-link[href="account.html"]
+        img#mobile-avatar[src="#{image_tag('avatars/altvatar.png')}" data-demo-src="#{image_tag('avatars/altvatar.png')}" alt=""]
+        span#mobile-username.is-heading
+          | Welcome, Guest
+      .navbar-dropdown
+        a.navbar-item[href="/"]
+          | Home
+        a.navbar-item.is-flex[href="cart-empty.html"]
+          span
+            | Cart
+          span#mobile-cart-count.menu-badge
+            | 0
+        a.navbar-item[href="/account.html"]
+          | Account
+        a.navbar-item[href="/wishlists.html"]
+          | Wishlists
+        a.navbar-item[href="/orders.html"]
+          | Orders
+        a#mobile-login-link.navbar-item[href="authentication.html"]
+          | Login
+        a#mobile-register-link.navbar-item[href="authentication.html"]
+          | Register
+        a#mobile-logout-link.navbar-item.is-hidden
+          | Logout
+    .navbar-item.has-dropdown
+      a.navbar-link
+        svg.feather.feather-grid[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+          rect[x="3" y="3" width="7" height="7"]
+          rect[x="14" y="3" width="7" height="7"]
+          rect[x="14" y="14" width="7" height="7"]
+          rect[x="3" y="14" width="7" height="7"]
+        span.is-heading
+          | Categories
+      .navbar-dropdown
+        a.navbar-item[href="products.html"]
+          | House
+        a.navbar-item[href="products.html"]
+          | Office
+        a.navbar-item[href="products.html"]
+          | Kids
+        a.navbar-item[href="products.html"]
+          | Kitchen
+        a.navbar-item[href="products.html"]
+          | Accessories
