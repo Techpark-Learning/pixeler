@@ -1,0 +1,9 @@
+- if @art_item.blank? 
+    p The Art items in your portfolio will appear here! ;)
+- else 
+    p These are the art items currently in your portfolio
+
+ul id = "art_item"
+   - @art_item.each do |c|
+        li
+            - link_to c.name, {:action => 'show', :id => c.id}
