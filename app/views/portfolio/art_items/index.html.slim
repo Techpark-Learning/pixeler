@@ -1,0 +1,10 @@
+table
+    tbody
+        - @user_art_items.each do | art_item |
+            tr
+                td=art_item.image
+                td=art_item.name
+                td=number_to_currency(art_item.price)
+                td=time_ago_in_words(art_item.created_at)
+                td=time_ago_in_words(art_item.updated_at)
+    
